@@ -1,6 +1,6 @@
 ## Need a simple calender that you can cut-n-paste ?
 
-Try (js-cal)[https://alexxroche.github.io/js-cal/]
+Try [js-cal](https://alexxroche.github.io/js-cal/)
 
 ## About
 Unix programs have long solved many problems. There are problems that you haven't even thought of yet, that they have already solved.
