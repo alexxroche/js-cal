@@ -1,0 +1,159 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta src="http://www.javascriptkit.com/script/script2/yearcalender.shtml" />
+<script language="javascript">
+<!--
+// fill the month table with column headings
+function day_title(day_name){
+     document.write("<TD ALIGN=center border=1px><span style='padding:1px'>"+day_name+"</span></TD>")
+}
+// fills the month table with numbers
+function fill_table(month,month_length)
+{ 
+
+var months = new Array(12);
+months[0] = "January";
+months[1] = "February";
+months[2] = "March";
+months[3] = "April";
+months[4] = "May";
+months[5] = "June";
+months[6] = "July";
+months[7] = "August";
+months[8] = "September";
+months[9] = "October";
+months[10] = "November";
+months[11] = "December";
+
+this_mnth=new Date().getMonth();
+
+  day=1
+  // begin the new month table
+  document.write("<TABLE CELLSPACING=0 CELLPADDING=0 style='letter-spacing:0; height:1px; width:150px; border:0'><TR>")
+  document.write("<TD COLSPAN=7 VALIGN=top ALIGN=center><B>"+month+"   </B><TR class='border_bottom' style='background:#ecffff;'>")
+  // column headings
+  day_title("Sun")
+  day_title("Mon")
+  day_title("Tue")
+  day_title("Wed")
+  day_title("Thu")
+  day_title("Fri")
+  day_title("Sat")
+  // pad cells before first day of month
+  document.write("</TR><TR class='border-top'>")
+  for (var i=1;i<start_day;i++){
+        document.write("<TD style=\"border:0; padding:0;  line-height: 2px; letter-spacing: 2px;\">")
+  }
+  // fill the first week of days
+  for (var i=start_day;i<8;i++){
+        document.write("<TD ALIGN=center>"+day+"</TD>")
+        day++
+  }
+  document.write("<TR>")
+  // fill the remaining weeks
+  while (day <= month_length) {
+     for (var i=1;i<=7 && day<=month_length;i++){
+        // highlight today
+         if(months[this_mnth] == month && day == this_day){
+         document.write("<TD ALIGN=center style=\"background:#9966ff\"><b>"+day+"</b></TD>")
+         }else{
+         document.write("<TD ALIGN=center>"+day+"</TD>")
+         }
+         day++
+     }
+     document.write("</TR><TR>")
+     // the first day of the next month
+     start_day=i
+  }
+  document.write("</TR></TABLE><BR>")
+}
+// end hiding -->
+
+</script>
+
+<script language="javascript">
+
+// CAHNGE the below variable to the CURRENT YEAR
+now=new Date();
+year=now.getFullYear();
+mnth=now.getMonth();
+if (mnth <= 9){ mnth = '0' + mnth; }
+this_day=now.getDate();
+
+// first day of the week of the new year
+// We should be able to reduce this by generating it 
+// procedurally from an array of months (that we need
+// anyway to highlight today)
+today= new Date("January 1, "+year)
+start_day = today.getDay() + 1   // starts with 0
+  document.write("<pre>")
+  //document.write("<span class=\"heading\"><h3>"+year+ ":" + month + "-" +this_day +"</h3></span>")
+  document.write("<table height=7px style=\"min-height:15px; line-height: 17px; border:0px solid white\" cellpadding=0 cellspacing=0>")
+  document.write("<tr style=\"line-height:1px; padding:0; \"><th style=\"line-height:1px;\" colspan=4><h3>"+year+"-"+mnth+"-"+this_day+"</h3></th></tr><tr><td style=\"border:10px solid white; \">")
+fill_table("January",31)
+  document.write("</td><td class='mtd'>")
+fill_table("February",29)
+  document.write("</td><td class='mtd'>")
+fill_table("March",31)
+  document.write("</td><td class='mtd'>")
+fill_table("April",30)
+  document.write("</td></tr><tr><td class='mtd'>")
+fill_table("May",31)
+  document.write("</td><td class='mtd'>")
+fill_table("June",30)
+  document.write("</td><td class='mtd'>")
+fill_table("July",31)
+  document.write("</td><td class='mtd'>")
+fill_table("August",31)
+  document.write("</td></tr><tr><td class='mtd'>")
+fill_table("September",30)
+  document.write("</td><td class='mtd'>")
+fill_table("October",31)
+  document.write("</td><td class='mtd'>")
+fill_table("November",30)
+  document.write("</td><td class='mtd'>")
+fill_table("December",31)
+  document.write("</td></tr></table></pre>")
+</script>
+<style>
+tr,td {
+    vertical-align: text-top;
+}
+.mtd {
+    border:8px solid white;
+}
+tr.border_top td {
+  border-top:1pt solid black;
+}
+tr.border_bottom td {
+  border-bottom:1pt solid black;
+  line-height: 9px;
+}
+table {
+border-collapse: collapse; 
+}
+</style>
+</head>
+<body>
+
+<div style="display:none">
+(trying to be a)Duplicate of cal by Wolfgang Helbig; we should also have the option for ncal output
+<!--p align="center"><font face="arial" size="-2">This free script provided by</font><br>
+<font face="arial, helvetica" size="-2"><a href="http://javascriptkit.com">JavaScript
+Kit</a></font></p-->
+<pre> To get a better cut-n-paste, we should:
+&lt;sudo code&gt; width=23; // 3-letter-days * 7 per week ) + 2 to pad each month
+for r={0..rows} { 
+    c={0..width} { 
+        m=r+c; pre_pad = width - size(months[m]); for {0..pre_pad}{ doc.write(" "); } document.write(months[m]};
+        then we loop 0..6 weeks of each month (so first week of each month, then new line and second week of each month)
+    }
+} where rows or columns are pulled from ?rows=3 (
+&lt;/sudo code&gt;
+    also week numbers like http://www.javascriptkit.com/script/script2/epoch/index.shtml
+</pre>
+</div>
+</body>
+</html>

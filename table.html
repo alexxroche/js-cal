@@ -1,0 +1,133 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta src="http://www.javascriptkit.com/script/script2/yearcalender.shtml" />
+<script language="javascript">
+<!--
+// fill the month table with column headings
+function day_title(day_name){
+     document.write("<TD ALIGN=center WIDTH=35>"+day_name+"</TD>")
+}
+// fills the month table with numbers
+function fill_table(month,month_length)
+{ 
+
+var months = new Array(12);
+months[0] = "January";
+months[1] = "February";
+months[2] = "March";
+months[3] = "April";
+months[4] = "May";
+months[5] = "June";
+months[6] = "July";
+months[7] = "August";
+months[8] = "September";
+months[9] = "October";
+months[10] = "November";
+months[11] = "December";
+
+this_mnth=new Date().getMonth();
+
+  day=1
+  // begin the new month table
+  document.write("<TABLE BORDER=0 CELLSPACING=3 CELLPADDING=0><TR>")
+  document.write("<TD COLSPAN=7 VALIGN=top ALIGN=center><B>"+month+"   </B><TR>")
+  // column headings
+  day_title("Sun")
+  day_title("Mon")
+  day_title("Tue")
+  day_title("Wed")
+  day_title("Thu")
+  day_title("Fri")
+  day_title("Sat")
+  // pad cells before first day of month
+  document.write("</TR><TR>")
+  for (var i=1;i<start_day;i++){
+        document.write("<TD>")
+  }
+  // fill the first week of days
+  for (var i=start_day;i<8;i++){
+        document.write("<TD ALIGN=center>"+day+"</TD>")
+        day++
+  }
+  document.write("<TR>")
+  // fill the remaining weeks
+  while (day <= month_length) {
+     for (var i=1;i<=7 && day<=month_length;i++){
+        // highlight today
+         if(months[this_mnth] == month && day == this_day){
+         document.write("<TD ALIGN=center style=\"background:#9966ff\"><b>"+day+"</b></TD>")
+         }else{
+         document.write("<TD ALIGN=center>"+day+"</TD>")
+         }
+         day++
+     }
+     document.write("</TR><TR>")
+     // the first day of the next month
+     start_day=i
+  }
+  document.write("</TR></TABLE><BR>")
+}
+// end hiding -->
+
+</script>
+
+<script language="javascript">
+
+// CAHNGE the below variable to the CURRENT YEAR
+now=new Date();
+year=now.getFullYear();
+mnth=now.getMonth();
+if (mnth <= 9){ mnth = '0' + mnth; }
+this_day=now.getDate();
+
+// first day of the week of the new year
+// We should be able to reduce this by generating it 
+// procedurally from an array of months (that we need
+// anyway to highlight today)
+today= new Date("January 1, "+year)
+start_day = today.getDay() + 1   // starts with 0
+  document.write("<center>")
+  //document.write("<span class=\"heading\"><h3>"+year+ ":" + month + "-" +this_day +"</h3></span>")
+  document.write("<table height=10px style=\"min-height:55px; line-height: 18px; \" border=1 cellpadding=0 cellspacing=0>")
+  document.write("<tr style=\"line-height:1px; padding:0; \"><th style=\"line-height:1px;\" colspan=4><h3>"+year+"-"+mnth+"-"+this_day+"</h3></th></tr><tr><td>")
+fill_table("January",31)
+  document.write("</td><td>")
+fill_table("February",29)
+  document.write("</td><td>")
+fill_table("March",31)
+  document.write("</td><td>")
+fill_table("April",30)
+  document.write("</td></tr><tr><td>")
+fill_table("May",31)
+  document.write("</td><td>")
+fill_table("June",30)
+  document.write("</td><td>")
+fill_table("July",31)
+  document.write("</td><td>")
+fill_table("August",31)
+  document.write("</td></tr><tr><td>")
+fill_table("September",30)
+  document.write("</td><td>")
+fill_table("October",31)
+  document.write("</td><td>")
+fill_table("November",30)
+  document.write("</td><td>")
+fill_table("December",31)
+  document.write("</td></tr></table>")
+</script>
+<style>
+tr,td {
+    vertical-align: text-top;
+}
+</style>
+</head>
+<body align=center>
+
+<p align="center"><font face="arial" size="-2"><a href="fails_cut-n-paste.html">another fails Cut-n-paste Version</a></p>
+<!--p align="center"><font face="arial" size="-2">This free script provided by</font><br>
+<font face="arial, helvetica" size="-2"><a href="http://javascriptkit.com">JavaScript
+Kit</a></font></p-->
+</body>
+</html>

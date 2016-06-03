@@ -1,0 +1,58 @@
+html {
+    font-size: 100%;
+    line-height: 1.382;
+    background: #3A1E5A none repeat scroll 0% 0%;
+    color: #A3A098;
+    font-family: "Elena","Times New Roman",serif;
+}
+
+.article-content iframe{max-width:41.696rem;margin-left:auto;margin-right:auto}
+
+.article-content pre {
+    background: #241338 none repeat scroll 0% 0%;
+    padding: 1.382rem;
+    overflow: auto;
+}
+
+.article-content p, .article-content h1, .article-content h2, .article-content h3, .article-content h4, .article-content h5, .article-content h6, .article-content pre, .article-content ul, .article-content ol, .article-content hr, .article-content iframe {
+    max-width: 41.696rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.subtitle {
+    color: #C1ACDA;
+    font-size: 1.236rem;
+    line-height: 1.7275rem;
+    font-family: "Nitti Light",Menlo,Consolas,monospace,monospace;
+    letter-spacing: -0.03125em;
+    word-spacing: -0.236em;
+}
+.z-card * {
+    animation-play-state: paused !important;
+}
+* {
+    margin: 0px;
+    padding: 0px;
+    font: inherit;
+    color: inherit;
+    vertical-align: baseline;
+    box-sizing: border-box;
+}
+
+
+  pre.cal { 
+    font-size: 90%;
+    border-collapse: collapse; 
+    /*
+        line-height: 13px; 
+    */
+    line-height: 16px; 
+    letter-spacing: 0px;
+    }
+  .today { 
+        background:#cc99ff; 
+        border: 1px solid red;
+        color: darkgreen;
+        //padding-right: 2px;
+    }
