@@ -12,8 +12,8 @@ cal does this. Not everyone is used to the command line, so rather than printing
 Before re-inventing the wheel I looked to see if this had been done and found *MANY* javascript calendars, but none of them could cleanly
 cut-n-paste into notepad++ or leafepad. 
 
-Here is an example that looks ok in the browser, but [fails to cut-n-paste](https://alexxroche.github.io/js-cal/fails_cut-n-paste.html).
+Here is an example that [looks ok](https://alexxroche.github.io/js-cal/table.html) in the browser, 
+but [fails to cut-n-paste](https://alexxroche.github.io/js-cal/fails_cut-n-paste.html).
 
 So I've started from scratch on: [cut-n-paste cal in javascript](https://alexxroche.github.io/js-cal/).
-
 
